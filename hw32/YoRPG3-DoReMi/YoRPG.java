@@ -79,7 +79,6 @@ public class YoRPG {
     	}
     	catch ( IOException e ) { }
 		
-		System.out.println("\nAbout: \n" + Character.about());
         chooseClass(name);
     }
 
@@ -90,10 +89,11 @@ public class YoRPG {
       =============================================*/
     public void chooseClass(String name) {
         // choose your own class!
-        int classSelection = 1;
+        int classSelection = 0;
         
         String y = "";
         y += "Choose your class!\n";
+		System.out.println("\nAbout: \n" + Character.about());
         for (int i = 0; i < CLASSES.length; i++) {
             y += "\t" + i + ": " + CLASSES[i] + "\n";
         }
