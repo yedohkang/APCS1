@@ -147,8 +147,10 @@ public class Rational {
 	
 	// compares Rational object taken in with the calling object  
 	public int compareTo (Rational rational) {
-		double number1 = floatValue();
-		double number2 = rational.floatValue();
+		int numerator = rational.p;
+		int denominator = rational.q;
+		int number1 = p * denominator;
+		int number2 = q * numerator;
 		if (number1 == number2) {
 			return 0;
 		}

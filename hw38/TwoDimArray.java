@@ -9,7 +9,7 @@ public class TwoDimArray {
 	//   		uses a FOR loop
 	public static void print1 (int[][] a) { 
 		for (int x = 0; x < a.length; x++) {
-			for (int h = 0; h < a[0].length; h++){
+			for (int h = 0; h < a[x].length; h++){
 				System.out.print(a[x][h] + " ");
 			}
 			System.out.println();
@@ -31,7 +31,7 @@ public class TwoDimArray {
 	public static int sum1 (int[][] a) { 
 		int sum = 0;
 		for (int x = 0; x < a.length; x++) {
-			for (int h = 0; h < a[0].length; h++){
+			for (int h = 0; h < a[x].length; h++){
 				sum += a[x][h];
 			}
 		}
