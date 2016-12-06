@@ -3,7 +3,7 @@
 // HW#37 -- Be More Rational
 // 2016-12-01
 
-public class Rational {
+public class Rational implements Comparable <Rational>{
     
 	// instance variables
 	private int p;
