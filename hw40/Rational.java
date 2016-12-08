@@ -46,8 +46,7 @@ public class Rational implements Comparable{
 	// toString 
 	public String toString () {
 		String retStr = "";
-		retStr += "Numerator: " + p;
-		retStr += "\nDenominator: " + q;
+		retStr += p + " / " + q;
 		return retStr;
 	}
     
@@ -165,6 +164,10 @@ public class Rational implements Comparable{
 	// but typecasts the given argument into an object that is of the same type
 	// as the class
 	public int compareTo (Object rational) {
+		if (! (rational instanceof Rational)) {
+		    throw new ClassCastException("\nERROR:"
+						 + " compareTo() input not a Rational");
+		}
 		Rational r = (Rational) rational; 
 		int numerator = r.p;
 		int denominator = r.q;
@@ -249,6 +252,7 @@ public class Rational implements Comparable{
 		Rational w = new Rational(2,3); // Stores the rational number 2/3
 		Rational y = new Rational(4,6); // Stores the rational number 1/2
 		Rational x = new Rational(4,18); // Stores the rational number 4/18
+		String o = "yoo";
 		
 		// .equals()
 		System.out.println("Equals");
@@ -258,5 +262,14 @@ public class Rational implements Comparable{
 		System.out.println("Z.equals(Y) is: " + z.equals(y));
 		// should be false
 		System.out.println("Z.equals(X) is: " + z.equals(x));
+		
+		// thanks to Clyde Sinclair!
+		try {
+		    System.out.println( "x > o: " +  x.compareTo(o) );
+		} catch ( ClassCastException cce) {
+		    System.out.println("ClassCastException caught.");
+		} catch (Exception e) {
+		    System.out.println("Exception caught.");
+		}
 	}
 }
