@@ -19,6 +19,8 @@ public class SuperArray {
 	//initializes 10-item array
 	public SuperArray() { 
 		_data = new int[10];
+		_lastPos = -1;
+		_size = 0;
 	}
 
 	//output array in [a,b,c] format
