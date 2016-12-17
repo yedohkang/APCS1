@@ -13,6 +13,7 @@ public class GuessNumber {
 	private static int lowerBound = 1; // lower range
 	private static int upperBound = 100; // upper range
 	
+	// choose random number, [1,100]
 	public static void choose () {
 		number = (int) (Math.random() * 100);
 	}
@@ -23,10 +24,11 @@ public class GuessNumber {
 		
 		System.out.println("Hi! Let's play the guessing game!\n");
 		
+		// first attempt
 		System.out.print("Guess a number from 1-100: ");
 		
-		guess = Keyboard.readInt();
-		numGuess += 1;
+		guess = Keyboard.readInt(); // reads user's input
+		numGuess += 1; // updates guess number
 		
 		if (guess == number) {
 			
@@ -40,7 +42,7 @@ public class GuessNumber {
 				
 				if (guess < number) {
 					
-					lowerBound = guess + 1;
+					lowerBound = guess + 1; // lowerBound is updated (one more than the guess)
 					
 					System.out.println("Too low, try again...\n");
 					System.out.print("Guess a number from " + lowerBound + "-" + upperBound + ": ");
@@ -51,13 +53,13 @@ public class GuessNumber {
 				
 				else {
 				
-					upperBound = guess - 1;
+					upperBound = guess - 1; // upperBound is updated (one less than the guess)
 					
 					System.out.println("Too high, try again...\n");
 					System.out.print("Guess a number from " + lowerBound + "-" + upperBound + ": ");
 		
 					guess = Keyboard.readInt();
-					numGuess += 1;
+					numGuess += 1; // updates guess number
 				}
 			}
 			
