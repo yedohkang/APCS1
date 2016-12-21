@@ -69,29 +69,34 @@ public class OrderedArrayList{
 	    }
     }
 	
-	// helper function for addBinary (idea by Brian Kwong!!!)
-	public int binaryHelp (Comparable newVal) {
-		int lowerBound = 0;
-		int upperBound = size() - 1;
-		while (lowerBound <= upperBound) { // so that upperBound is never bigger than lowerBound
-			int mid = (lowerBound + upperBound) / 2; // midpoint
-			if (newVal.compareTo(get(mid)) < 0) {
-				upperBound = mid - 1; // make upperBound one less than the mid
-			} else if (newVal.compareTo(_data.get(mid)) > 0) {
-				lowerBound = mid + 1; // make lowerBound one more than the mid
-			} else {
-				return mid; // if equal
-			}
-		}
-		return lowerBound;
-	}
-	
 	// addBinary takes as input any comparable object
 	// inserts newVal at the appropriate index
 	// maintains ascending order of elements
 	// uses a binary search to find appropriate index
 	public void addBinary (Comparable newVal) {
-		_data.add(binaryHelp(newVal), newVal);
+		int lo = 0;
+		int mid = 0;
+		int hi = _data.size()-1;
+		while (lo <= hi) { //running until target is found or bounds cross
+		    mid = (lo + hi) / 2;
+		    int x = _data.get(mid).compareTo(newVal);
+		    if (x == 0) {
+			//equal value found, insert here
+				_data.add(mid, newVal);
+				return;
+		    }
+		    else if (x > 0) {
+				//newVal < med, so look at lower half of data
+					hi = mid - 1;
+		    }
+		    else {
+				//newVal > med, so look at upper half of data
+				lo = mid + 1;
+		    }
+		}
+		// If you made it this far, newVal is not present.
+		// So insert at lo.
+		_data.add(lo, newVal);
 	}
 	
 
