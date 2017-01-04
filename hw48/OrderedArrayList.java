@@ -49,11 +49,15 @@ public class OrderedArrayList{
     }
 
 
-    // addLinear takes as input any comparable object 
-    // (i.e., any object of a class implementing interface Comparable)
-    // inserts newVal at the appropriate index
-    // maintains ascending order of elements
-    // uses a linear search to find appropriate index
+    /*=======
+		Description:
+			addLinear takes as input any comparable object (i.e., any object of a class implementing interface Comparable) 
+			inserts newVal at the appropriate index maintains ascending order of elements, uses a linear search to find appropriate index
+		Execution Time:
+			time varies directly with the number of elements in the dataset
+			ex. small n, like 5, will be fast
+				large n, like 100,000 will be much slower than the above
+	=======*/
     public void addLinear (Comparable newVal) { 
 		boolean check = false; //boolean to check if newVal is already added to the list
 		for (int i = 0; i <  _data.size(); i++){
@@ -69,10 +73,16 @@ public class OrderedArrayList{
 	    }
     }
 	
-	// addBinary takes as input any comparable object
-	// inserts newVal at the appropriate index
-	// maintains ascending order of elements
-	// uses a binary search to find appropriate index
+	/*=======
+		Description:
+			addBinary takes as input any comparable object, inserts newVal at the appropriate index, maintains ascending order of elements
+			uses a binary search to find appropriate index
+		Execution Time:
+			time varies logarithmically with the number of elements in the dataset
+			ex. small n, like 5, will be fast
+				large n, like 100,000 will still be fast
+				usually (and mostly) the fastest search out there
+	=======*/	
 	public void addBinary (Comparable newVal) {
 		int lo = 0;
 		int mid = 0;

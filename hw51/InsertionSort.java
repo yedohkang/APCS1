@@ -51,7 +51,7 @@ public class InsertionSort
 					Comparable temp = data.get(i);
 					data.set(i,data.get(i-1));
 					data.set(i-1,temp);
-					//System.out.println(data);
+					System.out.println(data);
 				}
 			}
 		}
